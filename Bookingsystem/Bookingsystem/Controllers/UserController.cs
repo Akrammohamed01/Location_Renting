@@ -3,30 +3,57 @@ using Microsoft.AspNetCore.Mvc;
 using System.Data.SqlClient;
 using System.Globalization;
 using System.IO;
+using Bookingsystem.Models;
+using Microsoft.Extensions.Hosting.Internal;
 
 namespace Bookingsystem.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class UserController : ControllerBase
     {
 
         [HttpPost]
-        public ActionResult Register( string name,string address,string password) {
 
-            SqlConnection sql = new SqlConnection("Data Source=DESKTOP-L28GF4F\\SQLEXPRESS;Initial Catalog=bookingSystem;Integrated Security=True");
+        [Route("Register")]
+        public ActionResult Register( string name,string email,string password,IFormFile image=null) {
 
 
-            sql.Open();
 
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = $"insert into Users values(1,'{name}','{address}','{password}',null)";
-            cmd.Connection = sql;
-           cmd.ExecuteNonQuery();
+            User user = new User();
+            user.fullName = name;
+            user.email = email;
+            user.password = password;
 
-            sql.Close();
 
-            return Ok();
+            if (user.CheckEmailExists(email)) {
+
+                return BadRequest("Registered Email");
+            }
+
+            string workingDirectory = Environment.CurrentDirectory;
+
+            if (!Directory.Exists(workingDirectory + '\\' + "Photos"))
+                Directory.CreateDirectory(workingDirectory + '\\' + "Photos");
+
+
+
+
+            if (image != null) {
+
+                Directory.CreateDirectory(workingDirectory + '\\' + "Photos" + $"\\{name}");
+            
+            }
+
+            image.CopyToAsync(new FileStream(workingDirectory + '\\' + "Photos" + $"\\{name}"+$"\\{image.FileName}", FileMode.Create));
+
+
+
+            user.photo = workingDirectory + '\\' + "Photos" + $"\\{name}" + $"\\{image.FileName}";
+
+
+            user.AddNewUser();
+            return Ok("Registered");
         
         }
 
