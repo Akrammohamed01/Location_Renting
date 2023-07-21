@@ -54,7 +54,6 @@ namespace Bookingsystem.Models
         
         }
 
-
         private void GetNewUserId() {
 
             string query = "select MAX(userId) from Users";
@@ -71,6 +70,32 @@ namespace Bookingsystem.Models
 
             Sql.close();
            
+        }
+
+        public bool CheckUserExists() {
+
+            string query = @$"select * from Users where email='{email}' and password='{password}'";
+
+            sql sqlObject = new sql();
+
+            sqlObject.open();
+             DataTable dt= sqlObject.GetRows(query);
+
+            if (dt.Rows.Count != 0) {
+
+
+                userId = int.Parse(dt.Rows[0]["userId"].ToString());
+                fullName= dt.Rows[0]["fullName"].ToString();
+                email = dt.Rows[0]["email"].ToString();
+                password = dt.Rows[0]["password"].ToString();
+                photo = dt.Rows[0]["photo"].ToString();
+
+                return true;
+
+            }
+            else
+                return false;
+        
         }
 
 

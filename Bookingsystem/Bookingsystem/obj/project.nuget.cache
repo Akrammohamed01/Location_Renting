@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Y68E8TnqQZxZicVDuWD2cmntbdhNME2rUlvs04xjDxvYkQCmvWxJmL2ppv1sznaPgrhQVMpl7kPjA4LA43jHRQ==",
+  "dgSpecHash": "bviGIBAY8GavNFP0ylKw9h9BYnKeqQHqb5w9N2s/CTyTCU9x2iODwI7XcKN0eUYKOFsaX8qEcmDi1cALfdKfeA==",
   "success": true,
   "projectFilePath": "D:\\BookingSystem\\Bookingsystem\\Bookingsystem\\Bookingsystem.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,7 @@
     "C:\\Users\\mkank\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\mkank\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\mkank\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
+    "C:\\Users\\mkank\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\mkank\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
     "C:\\Users\\mkank\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\mkank\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
